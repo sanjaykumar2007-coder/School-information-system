@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Entry</title>
+    <style>
+        /* --- General Styling --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6; /* Light, calm background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top instead of center for responsiveness */
+            min-height: 100vh;
+            padding: 40px 20px; /* Padding for mobile view */
+        }
+
+        /* --- Main Layout Wrapper now centering a single column --- */
+        .main-wrapper {
+            display: block; /* Change from flex to block to handle single card */
+            max-width: 550px; /* Reduced width for a focused form */
+            width: 100%;
+            margin-top: 40px;
+        }
+        
+        /* --- Card Styles (Applies to the form) --- */
+        .card {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        /* --- Headings --- */
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .card h2 {
+            color: #3498db;
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 1.4em;
+            border-left: 5px solid #2ecc71; /* Green accent for section title */
+            padding-left: 10px;
+        }
+
+
+        /* --- Labels and Inputs --- */
+        label {
+            display: block;
+            color: #34495e;
+            margin-bottom: 5px;
+            margin-top: 15px;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        textarea { /* Added textarea support */
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #bdc3c7;
+            border-radius: 6px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        textarea:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+
+        /* --- Button Styling --- */
+        button[type="submit"] {
+            background-color: #2ecc71;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.05em;
+            margin-top: 25px;
+            transition: background-color 0.3s ease;
+            font-weight: 600;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #27ae60;
+        }
+
+        /* --- Back Link Styling --- */
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: #3498db;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: color 0.3s;
+            padding-top: 15px;
+            border-top: 1px solid #ecf0f1;
+        }
+
+        .back-link:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        
+        /* --- Static Success Message Style --- */
+        .success-message {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #e8f5e9; /* Light green/success background */
+            color: #2e7d32; /* Dark green text */
+            border: 1px solid #c8e6c9;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 800px) {
+            .main-wrapper {
+                margin-top: 0;
+            }
+            body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Title is outside the main wrapper for a unified look -->
+    <h1>📋 Patient Details Entry</h1>
+
+    <div class="main-wrapper">
+        
+        <!-- MAIN CARD: Patient Entry Form -->
+        <div class="card form-card">
+            <h2>New Patient Registration</h2>
+            
+            <!-- Form is now static. Submitting will cause a page refresh. -->
+            <form id="patientForm" action="#" method="post">
+
+                <label for="patName">Full Name:</label>
+                <input type="text" id="patName" name="patName" required placeholder="Enter full name">
+
+                <label for="patDOB">Date of Birth:</label>
+                <input type="date" id="patDOB" name="patDOB" required>
+
+                <label for="patAddress">Address:</label>
+                <input type="text" id="patAddress" name="patAddress" placeholder="Street, City, Zip" required>
+
+                <label for="admittingDoc">Admitting Doctor ID:</label>
+                <input type="text" id="admittingDoc" name="admittingDoc" required placeholder="e.g., DOC1234">
+
+                <button type="submit">💾 Save Patient</button>
+            </form>
+
+            
+            </div>
+            
+            <a href="index.html" class="back-link">← Back to Index</a>
+        </div>
+        
+    </div>
+
+    <!-- JAVASCRIPT TO CAPTURE AND DISPLAY DATA REMOVED -->
+    
+</body>
+</html>

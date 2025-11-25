@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Entry</title>
+    <style>
+        /* Define a color palette for a professional look (Teal/Orange Theme) */
+        :root {
+            --primary-color: #009688; /* Teal/Aqua - Professional & Calm */
+            --success-color: #4CAF50; /* Green for the button */
+            --info-color: #ff9800; /* Orange for bill accent */
+            --bg-color: #e9ecef; /* Light gray background */
+            --card-bg: #ffffff; /* White card background */
+            --text-color: #333;
+            --border-color: #bdbdbd;
+            --shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Basic Reset and Body Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', 'Arial', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column; 
+            justify-content: flex-start; /* Align to top */
+            align-items: center; 
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* Header Styling */
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 2em;
+            padding-bottom: 10px;
+            width: 100%;
+            max-width: 550px; /* Match max-width of main-wrapper for centering */
+        }
+        
+        /* --- Main Layout Wrapper for a single, centered column --- */
+        .main-wrapper {
+            /* Now centered for a single card layout */
+            display: block; 
+            max-width: 550px; /* Focused width for the single form */
+            width: 100%;
+            margin-top: 0;
+        }
+
+        /* Card Styling (applies to the form) */
+        .card {
+            background: var(--card-bg);
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            width: 100%;
+        }
+        
+        /* Card sub-heading */
+        .card h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 1.4em;
+            border-left: 5px solid var(--info-color); /* Orange accent */
+            padding-left: 10px;
+        }
+
+
+        /* Form Layout and Grouping */
+        form label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+        
+        /* Input Field Styling */
+        form input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1em;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        form input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0, 150, 136, 0.2); /* Light primary color shadow */
+            outline: none;
+        }
+
+        /* Submit Button Styling */
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 30px;
+            background-color: var(--success-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #388e3c; /* Darker green on hover */
+        }
+
+        /* Back Link Styling */
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+            opacity: 0.9;
+        }
+
+        /* --- Success Message Style (Now visible by default, simulating a post-submit page) --- */
+        .success-message {
+            /* Removed 'display: none;' */
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #e0f2f1; /* Light teal */
+            color: #00796b; /* Darker primary color */
+            border: 1px solid #b2dfdb;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 800px) {
+            .main-wrapper {
+                margin-top: 0;
+            }
+            body {
+                padding: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>💳 Billing Details Entry</h1>
+
+    <div class="main-wrapper">
+        
+        <!-- MAIN CARD: Billing Entry Form -->
+        <div class="card form-card">
+            <h2>Enter New Invoice</h2>
+            
+            <!-- Form is static. Submitting will cause a page refresh. Removed ID since no JS listener is needed. -->
+            <form action="#" method="post">
+                
+                <label for="billID">Bill Number:</label>
+                <input type="text" id="billID" name="billID" required placeholder="e.g., INV-2025-00123">
+
+                <label for="patientID">Patient ID:</label>
+                <input type="text" id="patientID" name="patientID" required placeholder="e.g., P-10945">
+
+                <label for="amount">Total Amount ($):</label>
+                <input type="number" id="amount" name="amount" step="0.01" required min="0" placeholder="0.00">
+
+                <label for="date">Billing Date:</label>
+                <input type="date" id="date" name="date" required>
+
+                <button type="submit">💾 Generate Bill</button>
+            </form>
+
+            
+            </div>
+            
+            <a href="index.html" class="back-link">← Back to Index</a>
+        </div>
+        
+    </div>
+
+</body>
+</html>

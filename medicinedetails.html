@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Stock Entry</title>
+    <style>
+        /* Define a color palette for a professional look */
+        :root {
+            --primary-color: #007bff; /* Blue */
+            --success-color: #28a745; /* Green for the button and save status */
+            --info-color: #17a2b8; /* Light blue for display card accent */
+            --bg-color: #f4f7f6; /* Light gray background */
+            --card-bg: #ffffff; /* White card background */
+            --text-color: #333;
+            --border-color: #ced4da;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Basic Reset and Body Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Align to top */
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        /* Full-width header title */
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            width: 100%;
+            max-width: 550px; /* Match max-width of main-wrapper */
+        }
+
+        /* --- Main Layout Wrapper now centering a single column --- */
+        .main-wrapper {
+            /* Changed from flex setup to block/centered setup */
+            display: block; 
+            max-width: 550px; /* Focused width for a single form */
+            width: 100%;
+            margin-top: 0;
+        }
+        
+        /* --- Card Styles (Applies to the form) --- */
+        .card {
+            background-color: var(--card-bg);
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            width: 100%;
+        }
+
+        /* Card sub-heading */
+        .card h2 {
+            color: var(--info-color);
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 1.4em;
+            border-left: 5px solid var(--success-color); /* Green accent */
+            padding-left: 10px;
+        }
+
+        /* Form Layout and Grouping */
+        form label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        /* Input Field Styling */
+        form input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1em;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        form input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+            outline: none;
+        }
+
+        /* Submit Button Styling */
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 25px;
+            background-color: var(--success-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #1e7e34;
+        }
+        
+        button[type="submit"]:active {
+            transform: translateY(1px);
+        }
+
+        /* Back Link Styling */
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding-top: 10px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* --- Static Success Message Style --- */
+        .success-message {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #e8f5e9; /* Light green/success background */
+            color: #2e7d32; /* Dark green text */
+            border: 1px solid #c8e6c9;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 800px) {
+            .main-wrapper {
+                margin-top: 0;
+            }
+            body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>💊 Medicine Stock Entry</h1>
+
+    <div class="main-wrapper">
+        
+        <!-- MAIN CARD: Stock Entry Form -->
+        <div class="card form-card">
+            <h2>Add New Medicine Batch</h2>
+            
+            <!-- Form is now static. Submitting will cause a page refresh. -->
+            <form id="medicineForm" action="#" method="post">
+                
+                <label for="medName">Medicine Name:</label>
+                <input type="text" id="medName" name="medName" required placeholder="e.g., Aspirin 100mg">
+
+                <label for="batch">Batch Number:</label>
+                <input type="text" id="batch" name="batch" required placeholder="e.g., B4587J">
+
+                <label for="quantity">Quantity (Stock):</label>
+                <input type="number" id="quantity" name="quantity" required min="1" placeholder="Minimum 1">
+
+                <label for="expiry">Expiry Date:</label>
+                <input type="date" id="expiry" name="expiry" required>
+
+                <button type="submit">💾 Update Stock</button>
+            </form>
+
+            
+            </div>
+            
+            <a href="index.html" class="back-link">← Back to Index</a>
+        </div>
+        
+    </div>
+    
+</body>
+</html>
